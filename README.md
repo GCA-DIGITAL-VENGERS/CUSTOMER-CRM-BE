@@ -65,6 +65,23 @@ Authorization: Bearer <token>
 
 Ver [`CLIENTS_ENDPOINTS.md`](./CLIENTS_ENDPOINTS.md) para ejemplos detallados.
 
+### 📞 Contactos (Contacts)
+
+| Story | Método | Ruta | Descripción |
+|-------|--------|------|-------------|
+| US-12 | POST | `/api/contacts` | Registrar contacto |
+| US-12 | GET | `/api/contacts/client/:clienteId` | Listar contactos del cliente |
+
+### 💰 Oportunidades (Opportunities)
+
+| Story | Método | Ruta | Descripción |
+|-------|--------|------|-------------|
+| US-13 | POST | `/api/opportunities` | Crear oportunidad |
+| US-14 | PATCH | `/api/opportunities/:id/stage` | Avanzar etapa |
+| US-15 | GET | `/api/opportunities/client/:clienteId` | Listar por cliente |
+
+Ver [`CONTACTS_OPPORTUNITIES.md`](./CONTACTS_OPPORTUNITIES.md) para ejemplos detallados.
+
 ## Arquitectura
 
 ```

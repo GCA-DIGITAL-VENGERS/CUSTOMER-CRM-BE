@@ -188,6 +188,135 @@ const options = {
             },
           },
         },
+        Contact: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'string',
+              format: 'uuid',
+            },
+            clienteId: {
+              type: 'string',
+              format: 'uuid',
+            },
+            nombre: {
+              type: 'string',
+              example: 'María García',
+            },
+            cargo: {
+              type: 'string',
+              example: 'Gerente de Ventas',
+            },
+            email: {
+              type: 'string',
+              format: 'email',
+              example: 'maria@empresa.com',
+            },
+            createdAt: {
+              type: 'string',
+              format: 'date-time',
+            },
+            updatedAt: {
+              type: 'string',
+              format: 'date-time',
+            },
+          },
+        },
+        CreateContactRequest: {
+          type: 'object',
+          required: ['clienteId', 'nombre', 'cargo', 'email'],
+          properties: {
+            clienteId: {
+              type: 'string',
+              format: 'uuid',
+            },
+            nombre: {
+              type: 'string',
+              example: 'María García',
+            },
+            cargo: {
+              type: 'string',
+              example: 'Gerente de Ventas',
+            },
+            email: {
+              type: 'string',
+              format: 'email',
+              example: 'maria@empresa.com',
+            },
+          },
+        },
+        Opportunity: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'string',
+              format: 'uuid',
+            },
+            clienteId: {
+              type: 'string',
+              format: 'uuid',
+            },
+            titulo: {
+              type: 'string',
+              example: 'Implementación sistema ERP',
+            },
+            valor: {
+              type: 'number',
+              example: 50000,
+            },
+            etapa: {
+              type: 'string',
+              enum: ['PROSPECCION', 'PROPUESTA', 'NEGOCIACION', 'CERRADA'],
+              example: 'PROSPECCION',
+            },
+            fechaCierre: {
+              type: 'string',
+              format: 'date-time',
+            },
+            createdAt: {
+              type: 'string',
+              format: 'date-time',
+            },
+            updatedAt: {
+              type: 'string',
+              format: 'date-time',
+            },
+          },
+        },
+        CreateOpportunityRequest: {
+          type: 'object',
+          required: ['clienteId', 'titulo', 'valor', 'fechaCierre'],
+          properties: {
+            clienteId: {
+              type: 'string',
+              format: 'uuid',
+            },
+            titulo: {
+              type: 'string',
+              example: 'Implementación sistema ERP',
+            },
+            valor: {
+              type: 'number',
+              example: 50000,
+            },
+            fechaCierre: {
+              type: 'string',
+              format: 'date-time',
+              example: '2026-12-31T23:59:59Z',
+            },
+          },
+        },
+        UpdateOpportunityStageRequest: {
+          type: 'object',
+          required: ['etapa'],
+          properties: {
+            etapa: {
+              type: 'string',
+              enum: ['PROSPECCION', 'PROPUESTA', 'NEGOCIACION', 'CERRADA'],
+              example: 'PROPUESTA',
+            },
+          },
+        },
       },
     },
   },

@@ -20,14 +20,44 @@ model User {
 }
 
 model Client {
+  id            String   @id @default(uuid())
+  nombre        String
+  email         String   @unique
+  telefono      String
+  empresa       String
+  estado        String   @default("ACTIVO")
+  contacts      Contact[]
+  opportunities Opportunity[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("clients")
+}
+
+model Contact {
   id        String   @id @default(uuid())
+  clienteId String
+  cliente   Client   @relation(fields: [clienteId], references: [id], onDelete: Cascade)
   nombre    String
-  email     String   @unique
-  telefono  String
-  empresa   String
-  estado    String   @default("ACTIVO")
+  cargo     String
+  email     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("clients")
+  @@unique([clienteId, email])
+  @@map("contacts")
+}
+
+model Opportunity {
+  id          String   @id @default(uuid())
+  clienteId   String
+  cliente     Client   @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+  titulo      String
+  valor       Float
+  etapa       String   @default("PROSPECCION")
+  fechaCierre DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("opportunities")
 }
