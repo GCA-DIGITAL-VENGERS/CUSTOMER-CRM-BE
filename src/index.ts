@@ -5,6 +5,8 @@ import authRoutes from './interfaces/routes/authRoutes';
 import clientRoutes from './interfaces/routes/clientRoutes';
 import contactRoutes from './interfaces/routes/contactRoutes';
 import opportunityRoutes from './interfaces/routes/opportunityRoutes';
+import activityRoutes from './interfaces/routes/activityRoutes';
+import dashboardRoutes from './interfaces/routes/dashboardRoutes';
 import { swaggerSpec } from './config/swagger';
 
 const app = express();
@@ -24,6 +26,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/clients', clientRoutes);
 app.use('/api/contacts', contactRoutes);
 app.use('/api/opportunities', opportunityRoutes);
+app.use('/api/activities', activityRoutes);
+app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/clients', dashboardRoutes);
 
 const PORT = process.env.PORT ?? 3000;
 

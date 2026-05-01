@@ -317,6 +317,110 @@ const options = {
             },
           },
         },
+        Activity: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'string',
+              format: 'uuid',
+            },
+            clienteId: {
+              type: 'string',
+              format: 'uuid',
+            },
+            tipo: {
+              type: 'string',
+              enum: ['LLAMADA', 'REUNION', 'CORREO', 'NOTA'],
+              example: 'LLAMADA',
+            },
+            descripcion: {
+              type: 'string',
+              example: 'Llamada de seguimiento de la propuesta',
+            },
+            fecha: {
+              type: 'string',
+              format: 'date-time',
+            },
+            createdAt: {
+              type: 'string',
+              format: 'date-time',
+            },
+            updatedAt: {
+              type: 'string',
+              format: 'date-time',
+            },
+          },
+        },
+        CreateActivityRequest: {
+          type: 'object',
+          required: ['clienteId', 'tipo', 'descripcion', 'fecha'],
+          properties: {
+            clienteId: {
+              type: 'string',
+              format: 'uuid',
+            },
+            tipo: {
+              type: 'string',
+              enum: ['LLAMADA', 'REUNION', 'CORREO', 'NOTA'],
+              example: 'LLAMADA',
+            },
+            descripcion: {
+              type: 'string',
+              example: 'Llamada de seguimiento de la propuesta',
+            },
+            fecha: {
+              type: 'string',
+              format: 'date-time',
+              example: '2026-05-15T14:30:00Z',
+            },
+          },
+        },
+        DashboardSummary: {
+          type: 'object',
+          properties: {
+            totalActiveClients: {
+              type: 'integer',
+              example: 45,
+              description: 'Total de clientes activos',
+            },
+            openOpportunities: {
+              type: 'integer',
+              example: 23,
+              description: 'Total de oportunidades abiertas (no CERRADA)',
+            },
+            totalPipelineValue: {
+              type: 'number',
+              example: 1250000,
+              description: 'Valor total del pipeline en unidades monetarias',
+            },
+            averageDealSize: {
+              type: 'number',
+              example: 54347.83,
+              description: 'Valor promedio por oportunidad abierta',
+            },
+            opportunitiesByStage: {
+              type: 'object',
+              properties: {
+                PROSPECCION: {
+                  type: 'integer',
+                  example: 8,
+                },
+                PROPUESTA: {
+                  type: 'integer',
+                  example: 7,
+                },
+                NEGOCIACION: {
+                  type: 'integer',
+                  example: 5,
+                },
+                CERRADA: {
+                  type: 'integer',
+                  example: 12,
+                },
+              },
+            },
+          },
+        },
       },
     },
   },

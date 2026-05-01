@@ -82,6 +82,24 @@ Ver [`CLIENTS_ENDPOINTS.md`](./CLIENTS_ENDPOINTS.md) para ejemplos detallados.
 
 Ver [`CONTACTS_OPPORTUNITIES.md`](./CONTACTS_OPPORTUNITIES.md) para ejemplos detallados.
 
+### 📅 Actividades (Activities)
+
+| Story | Método | Ruta | Descripción |
+|-------|--------|------|-------------|
+| US-17 | POST | `/api/activities` | Registrar actividad |
+| US-17 | GET | `/api/activities?clienteId=` | Listar actividades |
+
+Ver [`ACTIVITIES.md`](./ACTIVITIES.md) para ejemplos detallados.
+
+### 📊 Dashboard y Exportación
+
+| Story | Método | Ruta | Descripción |
+|-------|--------|------|-------------|
+| US-22 | GET | `/api/dashboard/summary` | KPIs: clientes activos, oportunidades, pipeline |
+| US-23 | GET | `/api/clients/export/csv` | Descargar clientes en CSV |
+
+Ver [`DASHBOARD_EXPORT.md`](./DASHBOARD_EXPORT.md) para ejemplos detallados.
+
 ## Arquitectura
 
 ```
