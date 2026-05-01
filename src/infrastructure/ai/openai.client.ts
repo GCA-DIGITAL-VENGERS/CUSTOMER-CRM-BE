@@ -4,15 +4,14 @@ export class OpenAIClient {
   private client: OpenAI;
 
   constructor() {
-    const apiKey = process.env.NVIDIA_API_KEY;
+    const apiKey = process.env.OPENAI_API_KEY;
 
     if (!apiKey) {
-      throw new Error('NVIDIA_API_KEY environment variable is not set');
+      throw new Error('OPENAI_API_KEY environment variable is not set');
     }
 
     this.client = new OpenAI({
       apiKey,
-      baseURL: 'https://integrate.api.nvidia.com/v1',
     });
   }
 
@@ -25,7 +24,7 @@ export class OpenAIClient {
     options?: { temperature?: number; maxTokens?: number }
   ) {
     return this.client.chat.completions.create({
-      model: 'minimaxai/minimax-m2.7',
+      model: 'gpt-4o-mini',
       messages,
       temperature: options?.temperature ?? 0.7,
       max_tokens: options?.maxTokens ?? 1000,
