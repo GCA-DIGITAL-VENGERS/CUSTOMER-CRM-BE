@@ -19,7 +19,7 @@ const options = {
         description: 'Development server',
       },
       {
-        url: 'http://158.220.99.206',
+        url: 'https://api-crm.cerete.xyz',
         description: 'Production server',
       },
     ],
