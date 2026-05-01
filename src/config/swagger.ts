@@ -16,6 +16,10 @@ const options = {
         url: 'http://localhost:3000',
         description: 'Development server',
       },
+      {
+        url: 'http://158.220.99.206',
+        description: 'Production server',
+      },
     ],
     components: {
       securitySchemes: {
