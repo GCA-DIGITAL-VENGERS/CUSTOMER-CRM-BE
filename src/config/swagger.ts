@@ -427,6 +427,55 @@ const options = {
             },
           },
         },
+        ChatMessage: {
+          type: 'object',
+          required: ['message'],
+          properties: {
+            message: {
+              type: 'string',
+              maxLength: 5000,
+              example: '¿Cuáles son los endpoints disponibles para gestionar clientes?',
+              description: 'Pregunta o mensaje para el asistente RAG',
+            },
+          },
+        },
+        ChatResponse: {
+          type: 'object',
+          properties: {
+            type: {
+              type: 'string',
+              enum: ['metadata', 'content', 'done', 'error'],
+              description: 'Tipo de evento SSE',
+            },
+            chunksRetrieved: {
+              type: 'integer',
+              example: 3,
+              description: 'Número de chunks de contexto recuperados',
+            },
+            intent: {
+              type: 'string',
+              enum: ['how-to', 'data-query', 'general'],
+              description: 'Intención detectada en la pregunta',
+            },
+            message: {
+              type: 'string',
+              description: 'Contenido de la respuesta (en streaming)',
+            },
+          },
+        },
+        HealthResponse: {
+          type: 'object',
+          properties: {
+            status: {
+              type: 'string',
+              example: 'ok',
+            },
+            module: {
+              type: 'string',
+              example: 'ai',
+            },
+          },
+        },
       },
     },
   },

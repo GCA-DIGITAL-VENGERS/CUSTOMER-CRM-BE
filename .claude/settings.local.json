@@ -5,7 +5,10 @@
       "Bash(npx prisma *)",
       "Bash(npm run *)",
       "Bash(pkill -f \"node\")",
-      "Bash(pkill -f \"ts-node\")"
+      "Bash(pkill -f \"ts-node\")",
+      "Bash(Get-ChildItem *)",
+      "Bash(curl -s -X POST http://localhost:7000/api/ai/ask-history -H 'Content-Type: application/json' -d '{\"message\":\"¿Cómo creo un cliente?\"}')",
+      "Read(//tmp/**)"
     ]
   }
 }
