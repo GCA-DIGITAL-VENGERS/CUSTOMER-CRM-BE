@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npx prisma *)",
+      "Bash(npm run *)",
+      "Bash(pkill -f \"node\")",
+      "Bash(pkill -f \"ts-node\")"
+    ]
+  }
+}
